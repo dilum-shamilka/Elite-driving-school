@@ -2,7 +2,7 @@ package lk.ijse.util;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-public class PasswordManager {
+public class PasswordManager2 {
 
     /**
      * Hashes a plain text password using BCrypt.
@@ -31,8 +31,8 @@ public class PasswordManager {
      * and paste it into the LoginController for testing.
      */
     public static void main(String[] args) {
-        String passwordToHash = "1";
+        String passwordToHash = "123";
         String hashedPassword = hashPassword(passwordToHash);
-        System.out.println("Hashed password for '1': " + hashedPassword);
+        System.out.println("Hashed password for '123': " + hashedPassword);
     }
 }

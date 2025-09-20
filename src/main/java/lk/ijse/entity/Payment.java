@@ -9,7 +9,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "payment_id") // ✅ FIX: This should be the actual column name in your database.
+    @Column(name = "payment_id")
     private Integer paymentId;
 
     @Column(name = "amount")

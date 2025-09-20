@@ -23,6 +23,10 @@ public class DashboardController {
     private Button btnUsers;
     @FXML
     private Button btnStudents;
+    @FXML
+    private Button btnLessons;
+    @FXML
+    private Button btnPayments;
 
     public void initialize(String userRole) {
         if ("receptionist".equals(userRole)) {
@@ -31,6 +35,7 @@ public class DashboardController {
             btnInstructors.setDisable(true);
             btnRoles.setDisable(true);
             btnUsers.setDisable(true);
+            // Additionally, you may want to disable other non-receptionist buttons
 
         }
     }

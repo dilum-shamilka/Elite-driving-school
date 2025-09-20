@@ -9,31 +9,24 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import lk.ijse.util.PasswordManager;
+import lk.ijse.util.PasswordManager1;
 
 import java.io.IOException;
-import java.util.Objects;
 
-public class ReceptionController {
-    public TextField txtNewUsername;
-    public PasswordField txtNewPassword;
-    public PasswordField txtConfirmPassword;
+public class ReceptionLoginController {
 
-    public void btnSignupOnAction(ActionEvent event) {
-        String newUsername = txtNewUsername.getText();
-        String newPassword = txtNewPassword.getText();
-        String confirmPassword = txtConfirmPassword.getText();
+    public TextField txtUsername;
+    public PasswordField txtPassword;
 
-        if (newPassword.equals(confirmPassword)) {
-            // In a real application, you would save the new user and their hashed password to the database.
-            // For now, we'll just show a success alert.
-            String hashedPassword = PasswordManager.hashPassword(newPassword);
-            System.out.println("New Receptionist: " + newUsername);
-            System.out.println("Hashed Password: " + hashedPassword);
+    public void btnLoginOnAction(ActionEvent event) {
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
 
-            new Alert(Alert.AlertType.INFORMATION, "Receptionist registered successfully!").show();
+        // This should be fetched from a database for a real application
+        String receptionUsername = "receptionist";
+        String storedHashedPassword = "$2a$10$NHTYcSfQ6wEARyu4IeScZORu28Qgy9u./cjb3OTdUYTvnYDuaMkIS";
 
-            // Navigate to the dashboard after successful sign-up
+        if (username.equals(receptionUsername) && PasswordManager1.checkPassword(password, storedHashedPassword)) {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
@@ -44,7 +37,7 @@ public class ReceptionController {
                 dashboardController.initialize("receptionist");
 
                 Scene scene = new Scene(root);
-                stage.setTitle("Driving School Dashboard");
+                stage.setTitle("Driving school - Reception Dashboard");
                 stage.setScene(scene);
                 stage.setMaximized(true);
                 stage.show();
@@ -52,9 +45,8 @@ public class ReceptionController {
                 e.printStackTrace();
                 new Alert(Alert.AlertType.ERROR, "Failed to load dashboard!").show();
             }
-
         } else {
-            new Alert(Alert.AlertType.ERROR, "Passwords do not match!").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid Username or Password!").show();
         }
     }
 }

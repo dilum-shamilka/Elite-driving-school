@@ -45,7 +45,7 @@ public class PaymentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cmbStatus.getItems().addAll("Paid", "Pending");
+        cmbStatus.getItems().addAll("Paid", "Advance", "Not Paid");
         setCellValueFactory();
         loadAllPayments();
         loadStudents();
@@ -89,7 +89,6 @@ public class PaymentController implements Initializable {
     private void fillFields(PaymentTM tm) {
         txtAmount.setText(String.valueOf(tm.getAmount()));
 
-        // FIX: Correctly convert java.util.Date to LocalDate using the correct method.
         if (tm.getDate() != null) {
             dpDate.setValue(tm.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         } else {
@@ -105,6 +104,12 @@ public class PaymentController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        // --- FIX: Added validation for all fields ---
+        if (txtAmount.getText().isEmpty() || dpDate.getValue() == null || cmbStatus.getValue() == null || cmbStudent.getValue() == null) {
+            new Alert(Alert.AlertType.WARNING, "Please fill all the required fields.").show();
+            return;
+        }
+
         try {
             double amount = Double.parseDouble(txtAmount.getText());
             LocalDate localDate = dpDate.getValue();
@@ -116,7 +121,11 @@ public class PaymentController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION, "Payment saved!").show();
                 loadAllPayments();
                 clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to save payment. Student not found or invalid data.").show();
             }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid amount or student ID format.").show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Error saving payment: " + e.getMessage()).show();
         }

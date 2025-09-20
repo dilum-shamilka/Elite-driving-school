@@ -9,10 +9,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import lk.ijse.util.PasswordManager;
+import lk.ijse.util.PasswordManager1;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class AdminLoginController {
 
@@ -27,7 +26,7 @@ public class AdminLoginController {
         String adminUsername = "d";
         String storedHashedPassword = "$2a$10$qhJazpxJDngh.Csso9mAleQPJoX7ikPkq.thPKH3WmlSFv.jcys6C";
 
-        if (username.equals(adminUsername) && PasswordManager.checkPassword(password, storedHashedPassword)) {
+        if (username.equals(adminUsername) && PasswordManager1.checkPassword(password, storedHashedPassword)) {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
