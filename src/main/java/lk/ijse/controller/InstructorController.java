@@ -48,7 +48,7 @@ public class InstructorController implements Initializable {
 
         cmbAvailability.getItems().addAll("Full-Time", "Part-Time", "On-Call");
         // Updated specialization options for a driving school
-        cmbSpecialization.getItems().addAll("Motorcars","Three wheels", "Motorcycles", "Heavy Vehicles", "Special Needs");
+        cmbSpecialization.getItems().addAll("Basic Learner Program","Advanced Defensive Driving", "Motorcycle License Training", "Heavy Vehicle Training", "Refresher Driving Course");
 
         try {
             loadAllInstructors();
