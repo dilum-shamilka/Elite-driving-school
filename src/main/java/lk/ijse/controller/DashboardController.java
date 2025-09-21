@@ -4,9 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.StackPane;
-import java.io.IOException;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class DashboardController {
 
@@ -27,6 +30,8 @@ public class DashboardController {
     private Button btnLessons;
     @FXML
     private Button btnPayments;
+    @FXML
+    private Button btnLogout; // Added fx:id for logout
 
     public void initialize(String userRole) {
         if ("receptionist".equals(userRole)) {
@@ -35,8 +40,6 @@ public class DashboardController {
             btnInstructors.setDisable(true);
             btnRoles.setDisable(true);
             btnUsers.setDisable(true);
-            // Additionally, you may want to disable other non-receptionist buttons
-
         }
     }
 
@@ -73,6 +76,21 @@ public class DashboardController {
     @FXML
     private void handleStudentsButton(ActionEvent event) throws IOException {
         loadFXML("Student.fxml");
+    }
+
+    @FXML
+    private void handleLogoutButton(ActionEvent event) throws IOException {
+        // Load Goodbye.fxml in a new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GoodBye.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Goodbye");
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        // Close current dashboard window
+        Stage currentStage = (Stage) btnLogout.getScene().getWindow();
+        currentStage.close();
     }
 
     private void loadFXML(String fxmlFile) throws IOException {
