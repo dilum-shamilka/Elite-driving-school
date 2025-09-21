@@ -31,8 +31,8 @@ public class PasswordManager2 {
      * and paste it into the LoginController for testing.
      */
     public static void main(String[] args) {
-        String passwordToHash = "123";
+        String passwordToHash = "321";
         String hashedPassword = hashPassword(passwordToHash);
-        System.out.println("Hashed password for '123': " + hashedPassword);
+        System.out.println("Hashed password for '321': " + hashedPassword);
     }
 }

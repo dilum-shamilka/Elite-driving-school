@@ -18,21 +18,19 @@ public class AdminLoginController {
     public TextField txtUsername;
     public PasswordField txtPassword;
 
+    private static final String ADMIN_USERNAME = "d";
+    private static final String ADMIN_PASSWORD_HASH = "$2a$10$h.apAUyfeZv0BB5N5xBru.KGlN8ZprvxHrt1W5DmwgK4wfuLgW4VG";
+
     public void btnLoginOnAction(ActionEvent event) {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        // This should be fetched from a database for a real application
-        String adminUsername = "d";
-        String storedHashedPassword = "$2a$10$qhJazpxJDngh.Csso9mAleQPJoX7ikPkq.thPKH3WmlSFv.jcys6C";
-
-        if (username.equals(adminUsername) && PasswordManager1.checkPassword(password, storedHashedPassword)) {
+        if (username.equals(ADMIN_USERNAME) && PasswordManager1.checkPassword(password, ADMIN_PASSWORD_HASH)) {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
                 Parent root = loader.load();
 
-                // Get the dashboard controller instance and pass the user's role
                 DashboardController dashboardController = loader.getController();
                 dashboardController.initialize("admin");
 

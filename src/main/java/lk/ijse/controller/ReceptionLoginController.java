@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lk.ijse.util.PasswordManager1;
+import lk.ijse.util.PasswordManager2;
 
 import java.io.IOException;
 
@@ -24,9 +25,9 @@ public class ReceptionLoginController {
 
         // This should be fetched from a database for a real application
         String receptionUsername = "receptionist";
-        String storedHashedPassword = "$2a$10$NHTYcSfQ6wEARyu4IeScZORu28Qgy9u./cjb3OTdUYTvnYDuaMkIS";
+        String storedHashedPassword = "$2a$10$zlgpOqtM/a1cTIdXthooBuaB0.7YaFMfAWTIOSXAioDdg2wZYMeSu";
 
-        if (username.equals(receptionUsername) && PasswordManager1.checkPassword(password, storedHashedPassword)) {
+        if (username.equals(receptionUsername) && PasswordManager2.checkPassword(password, storedHashedPassword)) {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
