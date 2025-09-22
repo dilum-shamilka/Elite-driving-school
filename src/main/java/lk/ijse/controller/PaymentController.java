@@ -89,6 +89,7 @@ public class PaymentController implements Initializable {
     private void fillFields(PaymentTM tm) {
         txtAmount.setText(String.valueOf(tm.getAmount()));
 
+
         if (tm.getDate() != null) {
             dpDate.setValue(tm.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         } else {
@@ -104,12 +105,6 @@ public class PaymentController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-
-        if (txtAmount.getText().isEmpty() || dpDate.getValue() == null || cmbStatus.getValue() == null || cmbStudent.getValue() == null) {
-            new Alert(Alert.AlertType.WARNING, "Please fill all the required fields.").show();
-            return;
-        }
-
         try {
             double amount = Double.parseDouble(txtAmount.getText());
             LocalDate localDate = dpDate.getValue();
@@ -121,11 +116,7 @@ public class PaymentController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION, "Payment saved!").show();
                 loadAllPayments();
                 clearFields();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to save payment. Student not found or invalid data.").show();
             }
-        } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.ERROR, "Invalid amount or student ID format.").show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Error saving payment: " + e.getMessage()).show();
         }
