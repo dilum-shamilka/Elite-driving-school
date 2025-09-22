@@ -18,7 +18,7 @@ public class Initializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        // Load the new main_login.fxml file
+
         URL mainLoginURL = getClass().getResource("/view/mainlogin.fxml");
         if (mainLoginURL == null) {
             System.err.println("Error: main_login.fxml not found. Please ensure it's in src/main/resources/view/");

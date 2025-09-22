@@ -47,7 +47,6 @@ public class InstructorController implements Initializable {
         wireEnterKeyToSave();
 
         cmbAvailability.getItems().addAll("Full-Time", "Part-Time", "On-Call");
-        // Updated specialization options for a driving school
         cmbSpecialization.getItems().addAll("Basic Learner Program","Advanced Defensive Driving", "Motorcycle License Training", "Heavy Vehicle Training", "Refresher Driving Course");
 
         try {
@@ -234,13 +233,13 @@ public class InstructorController implements Initializable {
             return false;
         }
 
-        // Regex for email validation
+
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             show(Alert.AlertType.WARNING, "Please enter a valid email address.");
             return false;
         }
 
-        // Regex for Sri Lankan phone number validation (e.g., 0712345678)
+
         if (!phone.matches("^0\\d{9}$")) {
             show(Alert.AlertType.WARNING, "Please enter a valid 10-digit Sri Lankan phone number (e.g., 0712345678).");
             return false;

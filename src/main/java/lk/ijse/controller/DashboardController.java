@@ -80,7 +80,7 @@ public class DashboardController {
 
     @FXML
     private void handleLogoutButton(ActionEvent event) throws IOException {
-        // Load Goodbye.fxml in a new window
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GoodBye.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -88,7 +88,7 @@ public class DashboardController {
         stage.setScene(new Scene(root));
         stage.show();
 
-        // Close current dashboard window
+
         Stage currentStage = (Stage) btnLogout.getScene().getWindow();
         currentStage.close();
     }

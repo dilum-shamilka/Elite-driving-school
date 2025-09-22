@@ -9,7 +9,7 @@ public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lessonId") // ✅ Corrected column name
+    @Column(name = "lessonId")
     private Integer lessonId;
 
     @Column(name = "date")

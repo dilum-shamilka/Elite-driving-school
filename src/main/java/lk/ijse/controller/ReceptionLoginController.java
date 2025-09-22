@@ -23,7 +23,7 @@ public class ReceptionLoginController {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        // This should be fetched from a database for a real application
+
         String receptionUsername = "receptionist";
         String storedHashedPassword = "$2a$10$zlgpOqtM/a1cTIdXthooBuaB0.7YaFMfAWTIOSXAioDdg2wZYMeSu";
 

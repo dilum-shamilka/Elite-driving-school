@@ -20,7 +20,7 @@ public class InstructorTM {
         this.specialization = specialization;
     }
 
-    // Getters and Setters
+
     public int getInstructorId() { return instructorId; }
     public void setInstructorId(int instructorId) { this.instructorId = instructorId; }
     public String getName() { return name; }

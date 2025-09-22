@@ -115,7 +115,7 @@ public class RoleController implements Initializable {
         }
 
         try {
-            // FIX 2: Check for duplicates before saving
+
             if (roleBO.getByRoleName(roleName) != null) {
                 new Alert(Alert.AlertType.WARNING, "Role '" + roleName + "' already exists.").show();
                 return;
@@ -196,6 +196,6 @@ public class RoleController implements Initializable {
 
     @FXML
     void tblRolesOnMouseClicked(MouseEvent event) {
-        // Handled by the selection listener. No extra code needed here.
+
     }
 }

@@ -52,8 +52,7 @@ public class LessonController implements Initializable {
     private final CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.COURSE);
     private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
 
-    // No need for a global ObservableList since we'll create a new one each time.
-    // private final ObservableList<LessonTM> obList = FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -122,9 +121,7 @@ public class LessonController implements Initializable {
         }
     }
 
-    /**
-     * Fix: Creates a new ObservableList each time to ensure the table refreshes.
-     */
+
     private void loadAllLessons() throws Exception {
         ObservableList<LessonTM> freshList = FXCollections.observableArrayList();
         List<LessonDTO> allLessons = lessonBO.getAllLessons();
@@ -285,7 +282,7 @@ public class LessonController implements Initializable {
                 boolean ok = lessonBO.deleteLesson(selected.getLessonId());
                 if (ok) {
                     new Alert(Alert.AlertType.INFORMATION, "Lesson deleted successfully.").show();
-                    loadAllLessons(); // Call the fixed method
+                    loadAllLessons();
                     clearFields();
                     setModeCreate();
                 } else {

@@ -10,7 +10,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try {
             Configuration cfg = new Configuration();
-            cfg.configure("/hibernate.cfg.xml"); // make sure your cfg XML is correct
+            cfg.configure("/hibernate.cfg.xml");
             cfg.addAnnotatedClass(User.class);
             cfg.addAnnotatedClass(Role.class);
             cfg.addAnnotatedClass(Student.class);

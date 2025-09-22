@@ -23,7 +23,6 @@ public class LessonDTO {
         this.studentId = studentId;
     }
 
-    // Getters and Setters
     public int getLessonId() { return lessonId; }
     public void setLessonId(int lessonId) { this.lessonId = lessonId; }
     public Date getDate() { return date; }

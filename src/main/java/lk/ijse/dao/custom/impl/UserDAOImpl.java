@@ -23,7 +23,6 @@ public class UserDAOImpl implements UserDAO, SuperDAO {
         try {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
-            // Fetch the existing Role entity from the database
             Role role = session.get(Role.class, dto.getRole().getRoleId());
             if (role == null) {
                 return false;
@@ -57,7 +56,7 @@ public class UserDAOImpl implements UserDAO, SuperDAO {
                 user.setUsername(dto.getUsername());
                 user.setEmail(dto.getEmail());
                 user.setPassword(dto.getPassword());
-                // Fetch the existing Role entity
+
                 Role role = session.get(Role.class, dto.getRole().getRoleId());
                 if (role == null) {
                     return false;

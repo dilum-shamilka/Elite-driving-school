@@ -104,7 +104,7 @@ public class PaymentController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        // --- FIX: Added validation for all fields ---
+
         if (txtAmount.getText().isEmpty() || dpDate.getValue() == null || cmbStatus.getValue() == null || cmbStudent.getValue() == null) {
             new Alert(Alert.AlertType.WARNING, "Please fill all the required fields.").show();
             return;

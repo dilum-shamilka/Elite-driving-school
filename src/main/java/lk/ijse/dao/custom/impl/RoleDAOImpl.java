@@ -104,7 +104,7 @@ public class RoleDAOImpl implements RoleDAO, SuperDAO {
     @Override
     public RoleDTO getByRoleName(String roleName) {
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
-            // FIX 3: Corrected the HQL query to search for the role by name
+
             Query<Role> query = session.createQuery("FROM Role WHERE roleName = :roleName", Role.class);
             query.setParameter("roleName", roleName);
             Role role = query.uniqueResult();

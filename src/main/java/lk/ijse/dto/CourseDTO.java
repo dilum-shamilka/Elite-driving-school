@@ -20,7 +20,7 @@ public class CourseDTO {
         this.instructorName = instructorName;
     }
 
-    // Getters and Setters
+
     public int getCourseId() { return courseId; }
     public void setCourseId(int courseId) { this.courseId = courseId; }
     public String getName() { return name; }

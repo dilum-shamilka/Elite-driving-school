@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public class ExceptionHandler {
 
-    // Removed the unnecessary `import lk.ijse.exception.ExceptionHandler;`
+
 
     public static void handleException(Exception e) {
         handleAlert(Alert.AlertType.ERROR, "An Error Occurred", "Details:", e.getMessage());

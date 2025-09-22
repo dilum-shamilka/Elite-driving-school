@@ -17,7 +17,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "passwordHash") // ⬅️ **FIXED: Mapped to the correct database column.**
+    @Column(name = "passwordHash")
     private String password;
 
     @ManyToOne
@@ -37,7 +37,6 @@ public class User {
         this.status = status;
     }
 
-    // Getters and Setters
     public Integer getUserId() { return userId; }
     public void setUserId(Integer userId) { this.userId = userId; }
     public String getUsername() { return username; }

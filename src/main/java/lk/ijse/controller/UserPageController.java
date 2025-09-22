@@ -99,7 +99,7 @@ public class UserPageController implements Initializable {
             return false;
         }
 
-        // Updated Regex for Email Validation
+
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid email address.").show();
             return false;

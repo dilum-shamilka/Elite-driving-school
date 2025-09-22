@@ -247,7 +247,7 @@ public class CourseController implements Initializable {
             try {
                 return Integer.parseInt(selected.substring(selected.lastIndexOf("(") + 1, selected.lastIndexOf(")")));
             } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-                return 0; // Return a default or handle the error
+                return 0;
             }
         }
         return 0;

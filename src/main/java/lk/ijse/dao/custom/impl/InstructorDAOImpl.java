@@ -76,7 +76,7 @@ public class InstructorDAOImpl implements InstructorDAO, SuperDAO {
         try {
             session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
-            // FIX: Use the 'id' parameter instead of a non-existent 'dto' object
+
             Instructor instructor = session.get(Instructor.class, id);
             if (instructor != null) {
                 session.remove(instructor);

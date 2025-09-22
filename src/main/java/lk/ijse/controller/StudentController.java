@@ -144,13 +144,13 @@ public class StudentController implements Initializable {
             return false;
         }
 
-        // Updated Regex for Email Validation
+
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid email address.").show();
             return false;
         }
 
-        // Updated Regex for Sri Lankan Phone Number Validation
+
         if (!phone.matches("^0\\d{9}$")) {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid 10-digit Sri Lankan phone number (e.g., 0712345678).").show();
             return false;
