@@ -26,7 +26,7 @@ public class Payment {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "lessonid", referencedColumnName = "lessonid", nullable = false) // ✅ FIX
+    @JoinColumn(name = "lessonid", referencedColumnName = "lessonid", nullable = false)
     private Lesson lesson;
 
     public Payment() {}

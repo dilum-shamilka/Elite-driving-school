@@ -9,7 +9,7 @@ public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lessonid")   // ✅ use snake_case for DB column
+    @Column(name = "lessonid")
     private Integer lessonId;
 
     @Column(name = "date")
@@ -44,7 +44,7 @@ public class Lesson {
         this.student = student;
     }
 
-    // Getters and Setters
+
     public Integer getLessonId() { return lessonId; }
     public void setLessonId(Integer lessonId) { this.lessonId = lessonId; }
     public Date getDate() { return date; }

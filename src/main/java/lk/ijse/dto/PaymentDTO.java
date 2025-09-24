@@ -8,11 +8,11 @@ public class PaymentDTO {
     private Date date;
     private String status;
     private int studentId;
-    private int lessonId; // Add this line
+    private int lessonId;
 
     public PaymentDTO() {}
 
-    // Update the constructor to include lessonId
+
     public PaymentDTO(int paymentId, double amount, Date date, String status, int studentId, int lessonId) {
         this.paymentId = paymentId;
         this.amount = amount;
@@ -33,7 +33,7 @@ public class PaymentDTO {
     public int getStudentId() { return studentId; }
     public void setStudentId(int studentId) { this.studentId = studentId; }
 
-    // Add the new getter and setter for lessonId
+
     public int getLessonId() { return lessonId; }
     public void setLessonId(int lessonId) { this.lessonId = lessonId; }
 }

@@ -21,10 +21,10 @@ public class PaymentDAOImpl implements PaymentDAO, SuperDAO {
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
             transaction = session.beginTransaction();
             Student student = session.get(Student.class, dto.getStudentId());
-            Lesson lesson = session.get(Lesson.class, dto.getLessonId()); // Add this line
+            Lesson lesson = session.get(Lesson.class, dto.getLessonId());
             if (student == null || lesson == null) return false;
 
-            // Update the constructor call
+
             Payment payment = new Payment(dto.getAmount(), dto.getDate(), dto.getStatus(), student, lesson);
             session.persist(payment);
             transaction.commit();
@@ -88,9 +88,9 @@ public class PaymentDAOImpl implements PaymentDAO, SuperDAO {
             if (payment == null) return null;
 
             Integer studentId = (payment.getStudent() != null) ? payment.getStudent().getStudentId() : null;
-            Integer lessonId = (payment.getLesson() != null) ? payment.getLesson().getLessonId() : null; // Add this line
+            Integer lessonId = (payment.getLesson() != null) ? payment.getLesson().getLessonId() : null;
 
-            // Update the constructor call
+
             return new PaymentDTO(payment.getPaymentId(), payment.getAmount(), payment.getDate(), payment.getStatus(), studentId, lessonId);
         }
     }
@@ -99,11 +99,11 @@ public class PaymentDAOImpl implements PaymentDAO, SuperDAO {
     public List<PaymentDTO> getAll() {
         List<PaymentDTO> list = new ArrayList<>();
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
-            // Update the query to join the Lesson table as well
+
             Query<Payment> query = session.createQuery("SELECT p FROM Payment p JOIN FETCH p.student JOIN FETCH p.lesson", Payment.class);
             List<Payment> payments = query.list();
             for (Payment payment : payments) {
-                // Update the constructor call
+
                 list.add(new PaymentDTO(payment.getPaymentId(), payment.getAmount(), payment.getDate(), payment.getStatus(), payment.getStudent().getStudentId(), payment.getLesson().getLessonId()));
             }
         } catch (Exception e) {

@@ -129,7 +129,7 @@ public class PaymentController implements Initializable {
             int studentId = Integer.parseInt(cmbStudent.getValue());
             int lessonId = Integer.parseInt(cmbLesson.getValue());
 
-            // Corrected to use java.util.Date
+
             PaymentDTO dto = new PaymentDTO(0, amount, java.util.Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()), status, studentId, lessonId);
             if (paymentBO.savePayment(dto)) {
                 new Alert(Alert.AlertType.INFORMATION, "Payment saved!").show();
