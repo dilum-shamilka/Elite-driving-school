@@ -60,7 +60,7 @@ public class LessonDAOImpl implements LessonDAO, SuperDAO {
             transaction = session.beginTransaction();
             Lesson lesson = session.get(Lesson.class, dto.getLessonId());
             if (lesson != null) {
-                // Fetch related entities
+
                 Instructor newInstructor = session.get(Instructor.class, dto.getInstructorId());
                 Course newCourse = session.get(Course.class, dto.getCourseId());
                 Student newStudent = session.get(Student.class, dto.getStudentId());

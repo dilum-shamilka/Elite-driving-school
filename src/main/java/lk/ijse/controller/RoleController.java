@@ -37,7 +37,7 @@ public class RoleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // FIX 1: Populate ComboBox with sample roles. You can fetch these from the database if they are static.
+
         cmbRoleName.getItems().addAll("Admin", "Reception");
 
         tblRoles.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

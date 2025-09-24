@@ -82,7 +82,7 @@ public class PaymentDAOImpl implements PaymentDAO, SuperDAO {
             Payment payment = session.get(Payment.class, id);
             if (payment == null) return null;
 
-            // Handle the case where the student might be null
+
             Integer studentId = (payment.getStudent() != null) ? payment.getStudent().getStudentId() : null;
             return new PaymentDTO(payment.getPaymentId(), payment.getAmount(), payment.getDate(), payment.getStatus(), studentId);
         }

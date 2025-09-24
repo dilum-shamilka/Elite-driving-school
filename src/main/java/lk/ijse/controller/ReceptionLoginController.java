@@ -33,7 +33,7 @@ public class ReceptionLoginController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
                 Parent root = loader.load();
 
-                // Get the dashboard controller instance and pass the user's role
+
                 DashboardController dashboardController = loader.getController();
                 dashboardController.initialize("receptionist");
 

@@ -216,7 +216,7 @@ public class LessonController implements Initializable {
             boolean ok = lessonBO.saveLesson(dto);
             if (ok) {
                 new Alert(Alert.AlertType.INFORMATION, "Lesson saved successfully.").show();
-                loadAllLessons(); // Call the fixed method
+                loadAllLessons();
                 clearFields();
                 setModeCreate();
             } else {
@@ -253,7 +253,7 @@ public class LessonController implements Initializable {
             boolean ok = lessonBO.updateLesson(dto);
             if (ok) {
                 new Alert(Alert.AlertType.INFORMATION, "Lesson updated successfully.").show();
-                loadAllLessons(); // Call the fixed method
+                loadAllLessons();
                 clearFields();
                 setModeCreate();
             } else {

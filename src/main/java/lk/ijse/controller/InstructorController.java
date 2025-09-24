@@ -13,6 +13,7 @@ import lk.ijse.bo.custom.BOFactory;
 import lk.ijse.bo.custom.InstructorBO;
 import lk.ijse.dto.InstructorDTO;
 import lk.ijse.dto.tm.InstructorTM;
+
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -131,15 +132,16 @@ public class InstructorController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        // Corrected: Added validation at the start of the method
+        if (!validateFields()) {
+            return;
+        }
+
         String name = txtName.getText();
         String email = txtEmail.getText();
         String phone = txtPhone.getText();
         String availability = cmbAvailability.getValue();
         String specialization = cmbSpecialization.getValue();
-
-        if (!validateFields()) {
-            return;
-        }
 
         try {
             boolean ok = instructorBO.saveInstructor(new InstructorDTO(0, name.trim(), email.trim(), phone.trim(), availability, specialization));
@@ -233,12 +235,10 @@ public class InstructorController implements Initializable {
             return false;
         }
 
-
         if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             show(Alert.AlertType.WARNING, "Please enter a valid email address.");
             return false;
         }
-
 
         if (!phone.matches("^0\\d{9}$")) {
             show(Alert.AlertType.WARNING, "Please enter a valid 10-digit Sri Lankan phone number (e.g., 0712345678).");
