@@ -9,7 +9,7 @@ public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lessonId")
+    @Column(name = "lessonid")   // ✅ use snake_case for DB column
     private Integer lessonId;
 
     @Column(name = "date")

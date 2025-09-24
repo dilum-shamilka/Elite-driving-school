@@ -25,15 +25,21 @@ public class Payment {
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
+    @ManyToOne
+    @JoinColumn(name = "lessonid", referencedColumnName = "lessonid", nullable = false) // ✅ FIX
+    private Lesson lesson;
+
     public Payment() {}
 
-    public Payment(Double amount, Date date, String status, Student student) {
+    public Payment(Double amount, Date date, String status, Student student, Lesson lesson) {
         this.amount = amount;
         this.date = date;
         this.status = status;
         this.student = student;
+        this.lesson = lesson;
     }
 
+    // Getters and Setters
     public Integer getPaymentId() { return paymentId; }
     public void setPaymentId(Integer paymentId) { this.paymentId = paymentId; }
     public Double getAmount() { return amount; }
@@ -44,4 +50,6 @@ public class Payment {
     public void setStatus(String status) { this.status = status; }
     public Student getStudent() { return student; }
     public void setStudent(Student student) { this.student = student; }
+    public Lesson getLesson() { return lesson; }
+    public void setLesson(Lesson lesson) { this.lesson = lesson; }
 }
