@@ -16,7 +16,7 @@ import lk.ijse.dto.PaymentDTO;
 import lk.ijse.dto.tm.PaymentTM;
 
 import java.net.URL;
-import java.sql.Date; // You can remove this or change to java.util.Date
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
